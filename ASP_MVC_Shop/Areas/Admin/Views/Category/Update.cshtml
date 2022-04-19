@@ -1,0 +1,16 @@
+﻿@model ASP_MVC_Shop.Contexts.Category_0256
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<form action=@Url.Action("update") method="post">
+    <div class="row py-1">
+        <div class="col-12">
+            <a href=@Url.Action("") class="btn btn-secondary">Cancel</a>
+            <input type="submit" value="Update" class="btn btn-success float-right">
+        </div>
+    </div>
+    @RenderPage("~/Areas/Admin/Views/Category/Edit.cshtml")
+</form>
+

@@ -1,0 +1,16 @@
+﻿
+
+@{
+    ViewBag.Title = "Cập nhật";
+}
+<!-- Main content -->
+<form class="content form-edit" data-action=@Url.Action("update") method="POST">
+    <div class="row py-1">
+        <div class="col-12">
+            <a type="cancel" href=@Url.Action("") class="btn btn-secondary">Quay lại</a>
+            <button type="submit" class="btn btn-success float-right">Cập nhật</button>
+        </div>
+    </div>
+    @RenderPage("~/Areas/Admin/Views/Product/Edit.cshtml")
+</form>
+<!-- /.content -->

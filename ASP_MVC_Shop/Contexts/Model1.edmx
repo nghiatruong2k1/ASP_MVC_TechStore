@@ -1,0 +1,1178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Database_TTTN_0256Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Brand_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="alias" Type="varchar" MaxLength="100" />
+          <Property Name="imageId" Type="int" />
+          <Property Name="orderIndex" Type="int" />
+          <Property Name="isPopular" Type="bit" />
+          <Property Name="isPublic" Type="bit" />
+          <Property Name="isTrash" Type="bit" />
+        </EntityType>
+        <EntityType Name="Category_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="alias" Type="varchar" MaxLength="100" />
+          <Property Name="imageId" Type="int" />
+          <Property Name="orderIndex" Type="int" />
+          <Property Name="isPopular" Type="bit" />
+          <Property Name="isPublic" Type="bit" />
+          <Property Name="isTrash" Type="bit" />
+        </EntityType>
+        <EntityType Name="Image_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="alias" Type="varchar" MaxLength="100" />
+          <Property Name="url" Type="text" />
+          <Property Name="type" Type="varchar" MaxLength="100" />
+          <Property Name="typeId" Type="int" />
+          <Property Name="size" Type="int" />
+          <Property Name="isPublic" Type="bit" />
+          <Property Name="isTrash" Type="bit" />
+        </EntityType>
+        <EntityType Name="ImageType_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="alias" Type="varchar" MaxLength="100" />
+          <Property Name="isPublic" Type="bit" />
+          <Property Name="isTrash" Type="bit" />
+        </EntityType>
+        <EntityType Name="Order_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userId" Type="int" />
+          <Property Name="statusId" Type="int" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="updateDate" Type="datetime" />
+          <Property Name="voucherSale" Type="int" />
+          <Property Name="isPublic" Type="bit" />
+          <Property Name="isTrash" Type="bit" />
+        </EntityType>
+        <EntityType Name="OrderDetail_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="orderId" Type="int" />
+          <Property Name="productId" Type="int" />
+          <Property Name="price" Type="int" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="isPublic" Type="bit" />
+          <Property Name="isTrash" Type="bit" />
+        </EntityType>
+        <EntityType Name="OrderStatus_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="isPublic" Type="bit" />
+          <Property Name="isTrash" Type="bit" />
+        </EntityType>
+        <EntityType Name="OrderVoucher_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="shortDes" Type="nvarchar" MaxLength="2000" />
+          <Property Name="code" Type="varchar" MaxLength="10" />
+          <Property Name="value" Type="int" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="updateDate" Type="datetime" />
+          <Property Name="endDate" Type="datetime" />
+          <Property Name="isPublic" Type="bit" />
+          <Property Name="isTrash" Type="bit" />
+        </EntityType>
+        <EntityType Name="Product_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="alias" Type="varchar" MaxLength="100" />
+          <Property Name="price" Type="int" />
+          <Property Name="salePrice" Type="int" />
+          <Property Name="currencyUnit" Type="char" MaxLength="1" />
+          <Property Name="imageId" Type="int" />
+          <Property Name="shortDes" Type="nvarchar" MaxLength="2000" />
+          <Property Name="categoryId" Type="int" />
+          <Property Name="brandId" Type="int" />
+          <Property Name="typeId" Type="int" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="updateDate" Type="datetime" />
+          <Property Name="isPublic" Type="bit" />
+          <Property Name="isTrash" Type="bit" />
+          <Property Name="fullDes" Type="ntext" />
+          <Property Name="properties" Type="ntext" />
+        </EntityType>
+        <EntityType Name="ProductRating_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productId" Type="int" />
+          <Property Name="userId" Type="int" />
+          <Property Name="vote" Type="int" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="updateDate" Type="datetime" />
+          <Property Name="isPublic" Type="bit" />
+          <Property Name="isTrash" Type="bit" />
+          <Property Name="fullDes" Type="ntext" />
+        </EntityType>
+        <EntityType Name="ProductType_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="alias" Type="varchar" MaxLength="100" />
+          <Property Name="isPublic" Type="bit" />
+          <Property Name="isTrash" Type="bit" />
+        </EntityType>
+        <EntityType Name="Slider_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="alt" Type="nvarchar" MaxLength="100" />
+          <Property Name="imageId" Type="int" />
+          <Property Name="orderIndex" Type="int" />
+          <Property Name="isPublic" Type="bit" />
+          <Property Name="isTrash" Type="bit" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="100" />
+          <Property Name="lastName" Type="varchar" MaxLength="100" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="password" Type="varchar" MaxLength="100" />
+          <Property Name="typeId" Type="int" />
+          <Property Name="isPublic" Type="bit" />
+          <Property Name="isTrash" Type="bit" />
+          <Property Name="imageId" Type="int" />
+          <Property Name="phone" Type="char" MaxLength="10" />
+          <Property Name="location" Type="ntext" />
+        </EntityType>
+        <EntityType Name="UserType_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="alias" Type="varchar" MaxLength="100" />
+          <Property Name="shortDes" Type="nvarchar" MaxLength="200" />
+          <Property Name="isPublic" Type="bit" />
+          <Property Name="isTrash" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Database_TTTN_0256.dbo.ViewBrand_0256' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewBrand_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="alias" Type="varchar" MaxLength="100" />
+          <Property Name="imageId" Type="int" />
+          <Property Name="orderIndex" Type="int" />
+          <Property Name="isPopular" Type="bit" />
+          <Property Name="isPublic" Type="bit" />
+          <Property Name="isTrash" Type="bit" />
+          <Property Name="imageUrl" Type="text" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Database_TTTN_0256.dbo.ViewCategory_0256' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewCategory_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="alias" Type="varchar" MaxLength="100" />
+          <Property Name="imageId" Type="int" />
+          <Property Name="orderIndex" Type="int" />
+          <Property Name="isPopular" Type="bit" />
+          <Property Name="isPublic" Type="bit" />
+          <Property Name="isTrash" Type="bit" />
+          <Property Name="imageUrl" Type="text" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Database_TTTN_0256.dbo.ViewOrder_0256' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewOrder_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="userId" Type="int" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="voucherSale" Type="int" />
+          <Property Name="isPublic" Type="bit" />
+          <Property Name="isTrash" Type="bit" />
+          <Property Name="statusId" Type="int" />
+          <Property Name="statusName" Type="nvarchar" MaxLength="100" />
+          <Property Name="firstName" Type="varchar" MaxLength="100" />
+          <Property Name="lastName" Type="varchar" MaxLength="100" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="phone" Type="char" MaxLength="10" />
+          <Property Name="location" Type="ntext" />
+          <Property Name="totalPrice" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Database_TTTN_0256.dbo.ViewOrderDetail_0256' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewOrderDetail_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="orderId" Type="int" />
+          <Property Name="productId" Type="int" />
+          <Property Name="price" Type="int" />
+          <Property Name="isPublic" Type="bit" />
+          <Property Name="isTrash" Type="bit" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="alias" Type="varchar" MaxLength="100" />
+          <Property Name="imageUrl" Type="text" />
+          <Property Name="categoryName" Type="nvarchar" MaxLength="100" />
+          <Property Name="brandName" Type="nvarchar" MaxLength="100" />
+          <Property Name="typeName" Type="nvarchar" MaxLength="100" />
+          <Property Name="rating" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Database_TTTN_0256.dbo.ViewProduct_0256' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewProduct_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="alias" Type="varchar" MaxLength="100" />
+          <Property Name="price" Type="int" />
+          <Property Name="salePrice" Type="int" />
+          <Property Name="currencyUnit" Type="char" MaxLength="1" />
+          <Property Name="imageId" Type="int" />
+          <Property Name="shortDes" Type="nvarchar" MaxLength="2000" />
+          <Property Name="categoryId" Type="int" />
+          <Property Name="brandId" Type="int" />
+          <Property Name="typeId" Type="int" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="updateDate" Type="datetime" />
+          <Property Name="isPublic" Type="bit" />
+          <Property Name="isTrash" Type="bit" />
+          <Property Name="fullDes" Type="ntext" />
+          <Property Name="properties" Type="ntext" />
+          <Property Name="categoryName" Type="nvarchar" MaxLength="100" />
+          <Property Name="brandName" Type="nvarchar" MaxLength="100" />
+          <Property Name="imageUrl" Type="text" />
+          <Property Name="rating" Type="int" />
+          <Property Name="typeName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Database_TTTN_0256.dbo.ViewSlider_0256' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewSlider_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="alt" Type="nvarchar" MaxLength="100" />
+          <Property Name="imageId" Type="int" />
+          <Property Name="orderIndex" Type="int" />
+          <Property Name="isPublic" Type="bit" />
+          <Property Name="isTrash" Type="bit" />
+          <Property Name="imageUrl" Type="text" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Database_TTTN_0256.dbo.ViewUser_0256' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewUser_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="100" />
+          <Property Name="lastName" Type="varchar" MaxLength="100" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="password" Type="varchar" MaxLength="100" />
+          <Property Name="typeId" Type="int" />
+          <Property Name="isPublic" Type="bit" />
+          <Property Name="isTrash" Type="bit" />
+          <Property Name="imageId" Type="int" />
+          <Property Name="phone" Type="char" MaxLength="10" />
+          <Property Name="location" Type="ntext" />
+          <Property Name="imageUrl" Type="text" />
+          <Property Name="typeName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="Database_TTTN_0256ModelStoreContainer">
+          <EntitySet Name="Brand_0256" EntityType="Self.Brand_0256" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category_0256" EntityType="Self.Category_0256" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Image_0256" EntityType="Self.Image_0256" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImageType_0256" EntityType="Self.ImageType_0256" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order_0256" EntityType="Self.Order_0256" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderDetail_0256" EntityType="Self.OrderDetail_0256" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderStatus_0256" EntityType="Self.OrderStatus_0256" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderVoucher_0256" EntityType="Self.OrderVoucher_0256" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product_0256" EntityType="Self.Product_0256" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductRating_0256" EntityType="Self.ProductRating_0256" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductType_0256" EntityType="Self.ProductType_0256" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Slider_0256" EntityType="Self.Slider_0256" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_0256" EntityType="Self.User_0256" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserType_0256" EntityType="Self.UserType_0256" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ViewBrand_0256" EntityType="Self.ViewBrand_0256" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[ViewBrand_0256].[id] AS [id], 
+[ViewBrand_0256].[name] AS [name], 
+[ViewBrand_0256].[alias] AS [alias], 
+[ViewBrand_0256].[imageId] AS [imageId], 
+[ViewBrand_0256].[orderIndex] AS [orderIndex], 
+[ViewBrand_0256].[isPopular] AS [isPopular], 
+[ViewBrand_0256].[isPublic] AS [isPublic], 
+[ViewBrand_0256].[isTrash] AS [isTrash], 
+[ViewBrand_0256].[imageUrl] AS [imageUrl]
+FROM [dbo].[ViewBrand_0256] AS [ViewBrand_0256]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewCategory_0256" EntityType="Self.ViewCategory_0256" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[ViewCategory_0256].[id] AS [id], 
+[ViewCategory_0256].[name] AS [name], 
+[ViewCategory_0256].[alias] AS [alias], 
+[ViewCategory_0256].[imageId] AS [imageId], 
+[ViewCategory_0256].[orderIndex] AS [orderIndex], 
+[ViewCategory_0256].[isPopular] AS [isPopular], 
+[ViewCategory_0256].[isPublic] AS [isPublic], 
+[ViewCategory_0256].[isTrash] AS [isTrash], 
+[ViewCategory_0256].[imageUrl] AS [imageUrl]
+FROM [dbo].[ViewCategory_0256] AS [ViewCategory_0256]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewOrder_0256" EntityType="Self.ViewOrder_0256" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[ViewOrder_0256].[id] AS [id], 
+[ViewOrder_0256].[userId] AS [userId], 
+[ViewOrder_0256].[createDate] AS [createDate], 
+[ViewOrder_0256].[voucherSale] AS [voucherSale], 
+[ViewOrder_0256].[isPublic] AS [isPublic], 
+[ViewOrder_0256].[isTrash] AS [isTrash], 
+[ViewOrder_0256].[statusId] AS [statusId], 
+[ViewOrder_0256].[statusName] AS [statusName], 
+[ViewOrder_0256].[firstName] AS [firstName], 
+[ViewOrder_0256].[lastName] AS [lastName], 
+[ViewOrder_0256].[email] AS [email], 
+[ViewOrder_0256].[phone] AS [phone], 
+[ViewOrder_0256].[location] AS [location], 
+[ViewOrder_0256].[totalPrice] AS [totalPrice]
+FROM [dbo].[ViewOrder_0256] AS [ViewOrder_0256]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewOrderDetail_0256" EntityType="Self.ViewOrderDetail_0256" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[ViewOrderDetail_0256].[id] AS [id], 
+[ViewOrderDetail_0256].[orderId] AS [orderId], 
+[ViewOrderDetail_0256].[productId] AS [productId], 
+[ViewOrderDetail_0256].[price] AS [price], 
+[ViewOrderDetail_0256].[isPublic] AS [isPublic], 
+[ViewOrderDetail_0256].[isTrash] AS [isTrash], 
+[ViewOrderDetail_0256].[name] AS [name], 
+[ViewOrderDetail_0256].[alias] AS [alias], 
+[ViewOrderDetail_0256].[imageUrl] AS [imageUrl], 
+[ViewOrderDetail_0256].[categoryName] AS [categoryName], 
+[ViewOrderDetail_0256].[brandName] AS [brandName], 
+[ViewOrderDetail_0256].[typeName] AS [typeName], 
+[ViewOrderDetail_0256].[rating] AS [rating]
+FROM [dbo].[ViewOrderDetail_0256] AS [ViewOrderDetail_0256]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewProduct_0256" EntityType="Self.ViewProduct_0256" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[ViewProduct_0256].[id] AS [id], 
+[ViewProduct_0256].[name] AS [name], 
+[ViewProduct_0256].[alias] AS [alias], 
+[ViewProduct_0256].[price] AS [price], 
+[ViewProduct_0256].[salePrice] AS [salePrice], 
+[ViewProduct_0256].[currencyUnit] AS [currencyUnit], 
+[ViewProduct_0256].[imageId] AS [imageId], 
+[ViewProduct_0256].[shortDes] AS [shortDes], 
+[ViewProduct_0256].[categoryId] AS [categoryId], 
+[ViewProduct_0256].[brandId] AS [brandId], 
+[ViewProduct_0256].[typeId] AS [typeId], 
+[ViewProduct_0256].[createDate] AS [createDate], 
+[ViewProduct_0256].[updateDate] AS [updateDate], 
+[ViewProduct_0256].[isPublic] AS [isPublic], 
+[ViewProduct_0256].[isTrash] AS [isTrash], 
+[ViewProduct_0256].[fullDes] AS [fullDes], 
+[ViewProduct_0256].[properties] AS [properties], 
+[ViewProduct_0256].[categoryName] AS [categoryName], 
+[ViewProduct_0256].[brandName] AS [brandName], 
+[ViewProduct_0256].[imageUrl] AS [imageUrl], 
+[ViewProduct_0256].[rating] AS [rating], 
+[ViewProduct_0256].[typeName] AS [typeName]
+FROM [dbo].[ViewProduct_0256] AS [ViewProduct_0256]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewSlider_0256" EntityType="Self.ViewSlider_0256" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[ViewSlider_0256].[id] AS [id], 
+[ViewSlider_0256].[alt] AS [alt], 
+[ViewSlider_0256].[imageId] AS [imageId], 
+[ViewSlider_0256].[orderIndex] AS [orderIndex], 
+[ViewSlider_0256].[isPublic] AS [isPublic], 
+[ViewSlider_0256].[isTrash] AS [isTrash], 
+[ViewSlider_0256].[imageUrl] AS [imageUrl]
+FROM [dbo].[ViewSlider_0256] AS [ViewSlider_0256]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewUser_0256" EntityType="Self.ViewUser_0256" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[ViewUser_0256].[id] AS [id], 
+[ViewUser_0256].[firstName] AS [firstName], 
+[ViewUser_0256].[lastName] AS [lastName], 
+[ViewUser_0256].[email] AS [email], 
+[ViewUser_0256].[password] AS [password], 
+[ViewUser_0256].[typeId] AS [typeId], 
+[ViewUser_0256].[isPublic] AS [isPublic], 
+[ViewUser_0256].[isTrash] AS [isTrash], 
+[ViewUser_0256].[imageId] AS [imageId], 
+[ViewUser_0256].[phone] AS [phone], 
+[ViewUser_0256].[location] AS [location], 
+[ViewUser_0256].[imageUrl] AS [imageUrl], 
+[ViewUser_0256].[typeName] AS [typeName]
+FROM [dbo].[ViewUser_0256] AS [ViewUser_0256]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Database_TTTN_0256Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Brand_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="alias" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="imageId" Type="Int32" />
+          <Property Name="orderIndex" Type="Int32" />
+          <Property Name="isPopular" Type="Boolean" />
+          <Property Name="isPublic" Type="Boolean" />
+          <Property Name="isTrash" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Category_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="alias" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="imageId" Type="Int32" />
+          <Property Name="orderIndex" Type="Int32" />
+          <Property Name="isPopular" Type="Boolean" />
+          <Property Name="isPublic" Type="Boolean" />
+          <Property Name="isTrash" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Image_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="alias" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="typeId" Type="Int32" />
+          <Property Name="size" Type="Int32" />
+          <Property Name="isPublic" Type="Boolean" />
+          <Property Name="isTrash" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ImageType_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="alias" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="isPublic" Type="Boolean" />
+          <Property Name="isTrash" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Order_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="Int32" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="isPublic" Type="Boolean" />
+          <Property Name="isTrash" Type="Boolean" />
+          <Property Name="statusId" Type="Int32" />
+          <Property Name="updateDate" Type="DateTime" Precision="3" />
+          <Property Name="voucherSale" Type="Int32" />
+        </EntityType>
+        <EntityType Name="OrderDetail_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="orderId" Type="Int32" />
+          <Property Name="productId" Type="Int32" />
+          <Property Name="price" Type="Int32" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="isPublic" Type="Boolean" />
+          <Property Name="isTrash" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Product_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="alias" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="Int32" />
+          <Property Name="salePrice" Type="Int32" />
+          <Property Name="currencyUnit" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="imageId" Type="Int32" />
+          <Property Name="shortDes" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="categoryId" Type="Int32" />
+          <Property Name="brandId" Type="Int32" />
+          <Property Name="typeId" Type="Int32" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="updateDate" Type="DateTime" Precision="3" />
+          <Property Name="isPublic" Type="Boolean" />
+          <Property Name="isTrash" Type="Boolean" />
+          <Property Name="fullDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="properties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ProductRating_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="productId" Type="Int32" />
+          <Property Name="userId" Type="Int32" />
+          <Property Name="vote" Type="Int32" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="updateDate" Type="DateTime" Precision="3" />
+          <Property Name="isPublic" Type="Boolean" />
+          <Property Name="isTrash" Type="Boolean" />
+          <Property Name="fullDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ProductType_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="alias" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="isPublic" Type="Boolean" />
+          <Property Name="isTrash" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Slider_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="alt" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="imageId" Type="Int32" />
+          <Property Name="orderIndex" Type="Int32" />
+          <Property Name="isPublic" Type="Boolean" />
+          <Property Name="isTrash" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="typeId" Type="Int32" />
+          <Property Name="isPublic" Type="Boolean" />
+          <Property Name="isTrash" Type="Boolean" />
+          <Property Name="imageId" Type="Int32" />
+          <Property Name="phone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserType_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="alias" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="isPublic" Type="Boolean" />
+          <Property Name="isTrash" Type="Boolean" />
+          <Property Name="shortDes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ViewBrand_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="alias" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="imageId" Type="Int32" />
+          <Property Name="orderIndex" Type="Int32" />
+          <Property Name="isPopular" Type="Boolean" />
+          <Property Name="isPublic" Type="Boolean" />
+          <Property Name="isTrash" Type="Boolean" />
+          <Property Name="imageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ViewCategory_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="alias" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="imageId" Type="Int32" />
+          <Property Name="orderIndex" Type="Int32" />
+          <Property Name="isPopular" Type="Boolean" />
+          <Property Name="isPublic" Type="Boolean" />
+          <Property Name="isTrash" Type="Boolean" />
+          <Property Name="imageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ViewProduct_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="alias" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="Int32" />
+          <Property Name="salePrice" Type="Int32" />
+          <Property Name="currencyUnit" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="imageId" Type="Int32" />
+          <Property Name="shortDes" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="categoryId" Type="Int32" />
+          <Property Name="brandId" Type="Int32" />
+          <Property Name="typeId" Type="Int32" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="updateDate" Type="DateTime" Precision="3" />
+          <Property Name="isPublic" Type="Boolean" />
+          <Property Name="isTrash" Type="Boolean" />
+          <Property Name="fullDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="properties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="categoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="brandName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="imageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="rating" Type="Int32" />
+          <Property Name="typeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ViewSlider_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="alt" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="imageId" Type="Int32" />
+          <Property Name="orderIndex" Type="Int32" />
+          <Property Name="isPublic" Type="Boolean" />
+          <Property Name="isTrash" Type="Boolean" />
+          <Property Name="imageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="Database_TTTN_0256Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Brand_0256" EntityType="Self.Brand_0256" />
+          <EntitySet Name="Category_0256" EntityType="Self.Category_0256" />
+          <EntitySet Name="Image_0256" EntityType="Self.Image_0256" />
+          <EntitySet Name="ImageType_0256" EntityType="Self.ImageType_0256" />
+          <EntitySet Name="Order_0256" EntityType="Self.Order_0256" />
+          <EntitySet Name="OrderDetail_0256" EntityType="Self.OrderDetail_0256" />
+          <EntitySet Name="Product_0256" EntityType="Self.Product_0256" />
+          <EntitySet Name="ProductRating_0256" EntityType="Self.ProductRating_0256" />
+          <EntitySet Name="ProductType_0256" EntityType="Self.ProductType_0256" />
+          <EntitySet Name="Slider_0256" EntityType="Self.Slider_0256" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="User_0256" EntityType="Self.User_0256" />
+          <EntitySet Name="UserType_0256" EntityType="Self.UserType_0256" />
+          <EntitySet Name="ViewBrand_0256" EntityType="Self.ViewBrand_0256" />
+          <EntitySet Name="ViewCategory_0256" EntityType="Self.ViewCategory_0256" />
+          <EntitySet Name="ViewProduct_0256" EntityType="Self.ViewProduct_0256" />
+          <EntitySet Name="ViewSlider_0256" EntityType="Self.ViewSlider_0256" />
+          <EntitySet Name="ViewUser_0256" EntityType="Database_TTTN_0256Model.ViewUser_0256" />
+          <EntitySet Name="OrderStatus_0256" EntityType="Database_TTTN_0256Model.OrderStatus_0256" />
+          <EntitySet Name="OrderVoucher_0256" EntityType="Database_TTTN_0256Model.OrderVoucher_0256" />
+          <EntitySet Name="ViewOrder_0256" EntityType="Database_TTTN_0256Model.ViewOrder_0256" />
+          <EntitySet Name="ViewOrderDetail_0256" EntityType="Database_TTTN_0256Model.ViewOrderDetail_0256" />
+        </EntityContainer>
+        <EntityType Name="ViewUser_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="typeId" Type="Int32" />
+          <Property Name="isPublic" Type="Boolean" />
+          <Property Name="isTrash" Type="Boolean" />
+          <Property Name="imageId" Type="Int32" />
+          <Property Name="imageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="typeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="OrderStatus_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="isPublic" Type="Boolean" />
+          <Property Name="isTrash" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="OrderVoucher_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="shortDes" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="value" Type="Int32" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="updateDate" Type="DateTime" Precision="3" />
+          <Property Name="endDate" Type="DateTime" Precision="3" />
+          <Property Name="isPublic" Type="Boolean" />
+          <Property Name="isTrash" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ViewOrder_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="userId" Type="Int32" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="voucherSale" Type="Int32" />
+          <Property Name="isPublic" Type="Boolean" />
+          <Property Name="isTrash" Type="Boolean" />
+          <Property Name="statusId" Type="Int32" />
+          <Property Name="statusName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="firstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="totalPrice" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ViewOrderDetail_0256">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="orderId" Type="Int32" />
+          <Property Name="productId" Type="Int32" />
+          <Property Name="price" Type="Int32" />
+          <Property Name="isPublic" Type="Boolean" />
+          <Property Name="isTrash" Type="Boolean" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="alias" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="imageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="categoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="brandName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="typeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="rating" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Database_TTTN_0256ModelStoreContainer" CdmEntityContainer="Database_TTTN_0256Entities">
+          <EntitySetMapping Name="Brand_0256">
+            <EntityTypeMapping TypeName="Database_TTTN_0256Model.Brand_0256">
+              <MappingFragment StoreEntitySet="Brand_0256">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="alias" ColumnName="alias" />
+                <ScalarProperty Name="imageId" ColumnName="imageId" />
+                <ScalarProperty Name="orderIndex" ColumnName="orderIndex" />
+                <ScalarProperty Name="isPopular" ColumnName="isPopular" />
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
+                <ScalarProperty Name="isTrash" ColumnName="isTrash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Category_0256">
+            <EntityTypeMapping TypeName="Database_TTTN_0256Model.Category_0256">
+              <MappingFragment StoreEntitySet="Category_0256">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="alias" ColumnName="alias" />
+                <ScalarProperty Name="imageId" ColumnName="imageId" />
+                <ScalarProperty Name="orderIndex" ColumnName="orderIndex" />
+                <ScalarProperty Name="isPopular" ColumnName="isPopular" />
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
+                <ScalarProperty Name="isTrash" ColumnName="isTrash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Image_0256">
+            <EntityTypeMapping TypeName="Database_TTTN_0256Model.Image_0256">
+              <MappingFragment StoreEntitySet="Image_0256">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="alias" ColumnName="alias" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="typeId" ColumnName="typeId" />
+                <ScalarProperty Name="size" ColumnName="size" />
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
+                <ScalarProperty Name="isTrash" ColumnName="isTrash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImageType_0256">
+            <EntityTypeMapping TypeName="Database_TTTN_0256Model.ImageType_0256">
+              <MappingFragment StoreEntitySet="ImageType_0256">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="alias" ColumnName="alias" />
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
+                <ScalarProperty Name="isTrash" ColumnName="isTrash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order_0256">
+            <EntityTypeMapping TypeName="Database_TTTN_0256Model.Order_0256">
+              <MappingFragment StoreEntitySet="Order_0256">
+                <ScalarProperty Name="voucherSale" ColumnName="voucherSale" />
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="statusId" ColumnName="statusId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
+                <ScalarProperty Name="isTrash" ColumnName="isTrash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetail_0256">
+            <EntityTypeMapping TypeName="Database_TTTN_0256Model.OrderDetail_0256">
+              <MappingFragment StoreEntitySet="OrderDetail_0256">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="orderId" ColumnName="orderId" />
+                <ScalarProperty Name="productId" ColumnName="productId" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
+                <ScalarProperty Name="isTrash" ColumnName="isTrash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product_0256">
+            <EntityTypeMapping TypeName="Database_TTTN_0256Model.Product_0256">
+              <MappingFragment StoreEntitySet="Product_0256">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="alias" ColumnName="alias" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="salePrice" ColumnName="salePrice" />
+                <ScalarProperty Name="currencyUnit" ColumnName="currencyUnit" />
+                <ScalarProperty Name="imageId" ColumnName="imageId" />
+                <ScalarProperty Name="shortDes" ColumnName="shortDes" />
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="brandId" ColumnName="brandId" />
+                <ScalarProperty Name="typeId" ColumnName="typeId" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
+                <ScalarProperty Name="isTrash" ColumnName="isTrash" />
+                <ScalarProperty Name="fullDes" ColumnName="fullDes" />
+                <ScalarProperty Name="properties" ColumnName="properties" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductRating_0256">
+            <EntityTypeMapping TypeName="Database_TTTN_0256Model.ProductRating_0256">
+              <MappingFragment StoreEntitySet="ProductRating_0256">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="productId" ColumnName="productId" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="vote" ColumnName="vote" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
+                <ScalarProperty Name="isTrash" ColumnName="isTrash" />
+                <ScalarProperty Name="fullDes" ColumnName="fullDes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductType_0256">
+            <EntityTypeMapping TypeName="Database_TTTN_0256Model.ProductType_0256">
+              <MappingFragment StoreEntitySet="ProductType_0256">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="alias" ColumnName="alias" />
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
+                <ScalarProperty Name="isTrash" ColumnName="isTrash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Slider_0256">
+            <EntityTypeMapping TypeName="Database_TTTN_0256Model.Slider_0256">
+              <MappingFragment StoreEntitySet="Slider_0256">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="alt" ColumnName="alt" />
+                <ScalarProperty Name="imageId" ColumnName="imageId" />
+                <ScalarProperty Name="orderIndex" ColumnName="orderIndex" />
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
+                <ScalarProperty Name="isTrash" ColumnName="isTrash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Database_TTTN_0256Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_0256">
+            <EntityTypeMapping TypeName="Database_TTTN_0256Model.User_0256">
+              <MappingFragment StoreEntitySet="User_0256">
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="imageId" ColumnName="imageId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="typeId" ColumnName="typeId" />
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
+                <ScalarProperty Name="isTrash" ColumnName="isTrash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserType_0256">
+            <EntityTypeMapping TypeName="Database_TTTN_0256Model.UserType_0256">
+              <MappingFragment StoreEntitySet="UserType_0256">
+                <ScalarProperty Name="shortDes" ColumnName="shortDes" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="alias" ColumnName="alias" />
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
+                <ScalarProperty Name="isTrash" ColumnName="isTrash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewBrand_0256">
+            <EntityTypeMapping TypeName="Database_TTTN_0256Model.ViewBrand_0256">
+              <MappingFragment StoreEntitySet="ViewBrand_0256">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="alias" ColumnName="alias" />
+                <ScalarProperty Name="imageId" ColumnName="imageId" />
+                <ScalarProperty Name="orderIndex" ColumnName="orderIndex" />
+                <ScalarProperty Name="isPopular" ColumnName="isPopular" />
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
+                <ScalarProperty Name="isTrash" ColumnName="isTrash" />
+                <ScalarProperty Name="imageUrl" ColumnName="imageUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewCategory_0256">
+            <EntityTypeMapping TypeName="Database_TTTN_0256Model.ViewCategory_0256">
+              <MappingFragment StoreEntitySet="ViewCategory_0256">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="alias" ColumnName="alias" />
+                <ScalarProperty Name="imageId" ColumnName="imageId" />
+                <ScalarProperty Name="orderIndex" ColumnName="orderIndex" />
+                <ScalarProperty Name="isPopular" ColumnName="isPopular" />
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
+                <ScalarProperty Name="isTrash" ColumnName="isTrash" />
+                <ScalarProperty Name="imageUrl" ColumnName="imageUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewProduct_0256">
+            <EntityTypeMapping TypeName="Database_TTTN_0256Model.ViewProduct_0256">
+              <MappingFragment StoreEntitySet="ViewProduct_0256">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="alias" ColumnName="alias" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="salePrice" ColumnName="salePrice" />
+                <ScalarProperty Name="currencyUnit" ColumnName="currencyUnit" />
+                <ScalarProperty Name="imageId" ColumnName="imageId" />
+                <ScalarProperty Name="shortDes" ColumnName="shortDes" />
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="brandId" ColumnName="brandId" />
+                <ScalarProperty Name="typeId" ColumnName="typeId" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
+                <ScalarProperty Name="isTrash" ColumnName="isTrash" />
+                <ScalarProperty Name="fullDes" ColumnName="fullDes" />
+                <ScalarProperty Name="properties" ColumnName="properties" />
+                <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+                <ScalarProperty Name="brandName" ColumnName="brandName" />
+                <ScalarProperty Name="imageUrl" ColumnName="imageUrl" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="typeName" ColumnName="typeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewSlider_0256">
+            <EntityTypeMapping TypeName="Database_TTTN_0256Model.ViewSlider_0256">
+              <MappingFragment StoreEntitySet="ViewSlider_0256">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="alt" ColumnName="alt" />
+                <ScalarProperty Name="imageId" ColumnName="imageId" />
+                <ScalarProperty Name="orderIndex" ColumnName="orderIndex" />
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
+                <ScalarProperty Name="isTrash" ColumnName="isTrash" />
+                <ScalarProperty Name="imageUrl" ColumnName="imageUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewUser_0256">
+            <EntityTypeMapping TypeName="Database_TTTN_0256Model.ViewUser_0256">
+              <MappingFragment StoreEntitySet="ViewUser_0256">
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="typeName" ColumnName="typeName" />
+                <ScalarProperty Name="imageUrl" ColumnName="imageUrl" />
+                <ScalarProperty Name="imageId" ColumnName="imageId" />
+                <ScalarProperty Name="isTrash" ColumnName="isTrash" />
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
+                <ScalarProperty Name="typeId" ColumnName="typeId" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderStatus_0256">
+            <EntityTypeMapping TypeName="Database_TTTN_0256Model.OrderStatus_0256">
+              <MappingFragment StoreEntitySet="OrderStatus_0256">
+                <ScalarProperty Name="isTrash" ColumnName="isTrash" />
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderVoucher_0256">
+            <EntityTypeMapping TypeName="Database_TTTN_0256Model.OrderVoucher_0256">
+              <MappingFragment StoreEntitySet="OrderVoucher_0256">
+                <ScalarProperty Name="isTrash" ColumnName="isTrash" />
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
+                <ScalarProperty Name="endDate" ColumnName="endDate" />
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="shortDes" ColumnName="shortDes" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewOrder_0256">
+            <EntityTypeMapping TypeName="Database_TTTN_0256Model.ViewOrder_0256">
+              <MappingFragment StoreEntitySet="ViewOrder_0256">
+                <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="statusName" ColumnName="statusName" />
+                <ScalarProperty Name="statusId" ColumnName="statusId" />
+                <ScalarProperty Name="isTrash" ColumnName="isTrash" />
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
+                <ScalarProperty Name="voucherSale" ColumnName="voucherSale" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewOrderDetail_0256">
+            <EntityTypeMapping TypeName="Database_TTTN_0256Model.ViewOrderDetail_0256">
+              <MappingFragment StoreEntitySet="ViewOrderDetail_0256">
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="typeName" ColumnName="typeName" />
+                <ScalarProperty Name="brandName" ColumnName="brandName" />
+                <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+                <ScalarProperty Name="imageUrl" ColumnName="imageUrl" />
+                <ScalarProperty Name="alias" ColumnName="alias" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="isTrash" ColumnName="isTrash" />
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="productId" ColumnName="productId" />
+                <ScalarProperty Name="orderId" ColumnName="orderId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

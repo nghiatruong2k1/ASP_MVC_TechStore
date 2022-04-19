@@ -1,0 +1,32 @@
+﻿@model ASP_MVC_Shop.Models.ProductListModel
+
+<div class="btn-group ajax-view-links" data-render="#content">
+    <button data-href="@Url.Action(Model.action, Model.controller,
+            new
+            {
+                page = Model.listProduct.PageNumber,
+                alias = Model.alias,
+                query = Model.query,
+                view = 0
+            }
+         )"
+       class="btn btn-light view-btn"
+       data-toggle="tooltip" 
+       title="List view">
+        <i class="fa fa-bars"></i>
+    </button>
+    <button data-href="@Url.Action(Model.action, Model.controller,
+            new
+            {
+                page = Model.listProduct.PageNumber,
+                alias = Model.alias,
+                query = Model.query,
+                view = 1
+            }
+         )"
+       class="btn btn-light view-btn"
+       data-toggle="tooltip" 
+       title="Grid view">
+        <i class="fa fa-th"></i>
+    </button>
+</div>

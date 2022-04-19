@@ -1,0 +1,85 @@
+﻿@model ASP_MVC_Shop.Models.AuthRegisterModel
+@{
+    ViewBag.Title = "Đăng ký";
+}
+
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content padding-y">
+    <!-- ============================ COMPONENT REGISTER   ================================= -->
+    <div class="card mx-auto" style="max-width:520px; margin-top:20px;">
+        <article class="card-body register-card-body">
+            <header class="mb-4"><h4 class="card-title">Đăng ký</h4></header>
+            <form method="POST" action=@Url.Action("register","user")>
+                @Html.AntiForgeryToken()
+                <div class="form-row">
+                    <div class="col col-12 col-md-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-user"></span>
+                                </div>
+                            </div>
+                            @Html.EditorFor(model => model.firstName, new { htmlAttributes = new { @class = "form-control", @value = Model.firstName, @placeholder = "Tên" } })
+                            @Html.ValidationMessageFor(model => model.firstName, "", new { @class = "text-danger w-100" })
+                        </div>
+                    </div> <!-- form-group end.// -->
+                    <div class="col col-12 col-md-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-user"></span>
+                                </div>
+                            </div>
+                            @Html.EditorFor(model => model.lastName, new { htmlAttributes = new { @class = "form-control", @value = Model.lastName, @placeholder = "Họ" } })
+                            @Html.ValidationMessageFor(model => model.lastName, "", new { @class = "text-danger w-100" })
+                        </div>
+                    </div> <!-- form-group end.// -->
+                </div> <!-- form-row end.// -->
+                <div class="input-group mb-3">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                    @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", @value = Model.email,@type= "email", @placeholder = "Email" } })
+                    @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger w-100" })
+                </div><!-- form-group end.// -->
+                <div class="input-group mb-3">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                    @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", @value = Model.password, @type = "password", @placeholder = "Mật khẩu" } })
+                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger w-100" })
+                </div><!-- form-group end.// -->
+                <div class="input-group mb-3">
+
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                    @Html.EditorFor(model => model.rePassword, new { htmlAttributes = new { @class = "form-control", @value = Model.rePassword, @type = "password", @placeholder = "Xác nhận mật khẩu" } })
+                    @Html.ValidationMessageFor(model => model.rePassword, "", new { @class = "text-danger w-100" })
+                </div><!-- form-group end.// -->
+                <div class="form-group">
+                    <label class="custom-control custom-checkbox">
+                        <input type="checkbox" name="isAgree" class="custom-control-input" checked="">
+                        <div class="custom-control-label">
+                            Bạn đồng ý với <a href="#">điều khoản và chính sách sử dụng</a>
+                        </div>
+                        @*@Html.ValidationMessageFor(model => model.isAgree, "", new { @class = "text-danger w-100" })*@
+                    </label>
+                </div> <!-- form-group end.// -->
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block"> Đăng ký  </button>
+                </div> <!-- form-group// -->
+
+                <p class="text-center mt-4">Đã có tài khoản? <a href=@Url.Action("login","user")>Đăng nhập</a></p>
+            </form>
+        </article><!-- card-body.// -->
+    </div> <!-- card .// -->
+    <!-- ============================ COMPONENT REGISTER  END.// ================================= -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->

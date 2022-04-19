@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="22770ef2d15b47c2abe000806b3e96cf" Name="Diagram1">
+        <EntityTypeShape EntityType="Database_TTTN_0256Model.Brand_0256" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database_TTTN_0256Model.Category_0256" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database_TTTN_0256Model.Image_0256" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database_TTTN_0256Model.ImageType_0256" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database_TTTN_0256Model.Order_0256" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database_TTTN_0256Model.OrderDetail_0256" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database_TTTN_0256Model.Product_0256" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database_TTTN_0256Model.ProductRating_0256" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database_TTTN_0256Model.ProductType_0256" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database_TTTN_0256Model.Slider_0256" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database_TTTN_0256Model.sysdiagrams" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database_TTTN_0256Model.User_0256" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database_TTTN_0256Model.UserType_0256" Width="1.5" PointX="8.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database_TTTN_0256Model.ViewBrand_0256" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database_TTTN_0256Model.ViewCategory_0256" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database_TTTN_0256Model.ViewProduct_0256" Width="1.5" PointX="4.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database_TTTN_0256Model.ViewSlider_0256" Width="1.5" PointX="6.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database_TTTN_0256Model.ViewUser_0256" Width="1.5" PointX="9.375" PointY="10.75" />
+        <EntityTypeShape EntityType="Database_TTTN_0256Model.OrderStatus_0256" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="Database_TTTN_0256Model.OrderVoucher_0256" Width="1.5" PointX="11.75" PointY="8.75" />
+        <EntityTypeShape EntityType="Database_TTTN_0256Model.ViewOrder_0256" Width="1.5" PointX="11.75" PointY="12.75" />
+        <EntityTypeShape EntityType="Database_TTTN_0256Model.ViewOrderDetail_0256" Width="1.5" PointX="13.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

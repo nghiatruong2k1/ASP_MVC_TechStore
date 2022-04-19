@@ -1,0 +1,38 @@
+﻿@model ASP_MVC_Shop.Models.HomeModel
+<section class="padding-bottom">
+    <header class="section-heading heading-line">
+        <h4 class="title-section text-uppercase">Thương hiệu:</h4>
+    </header>
+
+    <div class="card card-home-category">
+        <div class="row no-gutters">
+            <div class="col-md-3">
+                <div class="home-category-banner bg-light-orange">
+                    <h5 class="title">Thương hiệu điện tử chất lượng hàng đầu hiện nay</h5>
+                    <p></p>
+                    <a href=@Url.Action("brand","product") class="btn btn-outline-primary rounded-pill">Xem ngay</a>
+                    <img src="~/Content/images/items/2.jpg" class="img-bg">
+                </div>
+
+            </div> <!-- col.// -->
+            <div class="col-md-9">
+                <ul class="row no-gutters bordered-cols">
+                    @foreach (var item in Model.listBrand)
+                    {
+                        <li class="col-6 col-lg-3 col-md-4">
+                            <a href=@Url.Action("brand","product",new { id=item.id}) class="
+        item">
+                                <div class="card-body">
+                                    <h6 class="title">@item.name</h6>
+                                    <img class="img-sm float-right" src=@item.imageUrl>
+                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
+                                </div>
+                            </a>
+                        </li>
+                    }
+
+                </ul>
+            </div> <!-- col.// -->
+        </div> <!-- row.// -->
+    </div> <!-- card.// -->
+</section>

@@ -1,0 +1,34 @@
+﻿@RenderPage("~/Views/Shared/Modul/Head.cshtml")
+@RenderPage("~/Views/Shared/Modul/Header.cshtml")
+<section class="section-top py-2 bg-gray">
+    <div class="container">
+        <h2 class="title-page">My account</h2>
+    </div> <!-- container //  -->
+</section>
+<!-- ========================= SECTION PAGETOP END// ========================= -->
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content padding-y">
+    <div class="container">
+
+        <div class="row">
+            <aside class="col-md-3">
+                <nav class="list-group navbar-container">
+                    <a class="list-group-item" href=@Url.Action("","profile")> Account overview  </a>
+                    <a class="list-group-item" href=@Url.Action("address","profile")> My Address </a>
+                    <a class="list-group-item" href=@Url.Action("order","profile")> My Orders </a>
+                    <a class="list-group-item" href=@Url.Action("wishlist","profile")> My wishlist </a>
+                    <a class="list-group-item" href=@Url.Action("seller","profile")> My Selling Items </a>
+                    <a class="list-group-item" href=@Url.Action("setting","profile")> Settings </a>
+                </nav>
+            </aside> <!-- col.// -->
+            <main class="col-md-9">
+                @RenderBody()
+            </main> <!-- col.// -->
+        </div>
+
+    </div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+@RenderPage("~/Views/Shared/Modul/Footer.cshtml")
+@RenderSection("scripts", required: false)
+@RenderPage("~/Views/Shared/Modul/Foot.cshtml")

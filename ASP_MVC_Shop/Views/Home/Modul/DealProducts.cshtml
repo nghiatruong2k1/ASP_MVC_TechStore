@@ -1,0 +1,53 @@
+﻿@model ASP_MVC_Shop.Models.HomeModel
+<!-- =============== SECTION DEAL =============== -->
+<section class="padding-bottom">
+    <div class="card card-deal">
+        <div class="col-heading content-body">
+            <header class="section-heading">
+                <h3 class="section-title">Sản phẩm khuyến mãi:</h3>
+                <p></p>
+            </header><!-- sect-heading -->
+            <div class="timer" data-end="2022/04/05 23:59:59">
+                <div> <span class="num d"> 00 </span><small>Days</small></div>
+                <div> <span class="num h"> 00 </span><small>Hours</small></div>
+                <div> <span class="num m"> 00 </span><small>Min</small></div>
+                <div> <span class="num s"> 00 </span><small>Sec</small></div>
+            </div>
+        </div> <!-- col.// -->
+        <div class="w-100 overflow-auto">
+            <div class="row no-gutters flex-nowrap">
+                @foreach (var item in Model.listProductDeal)
+                {
+                    <div class="col-lg-3 col-md-4 col-6 col p-1">
+                        <div class="card card-sm card-product-grid h-100">
+                            <a href=@Url.Action("detail","product",new { alias = item.alias }) class="img-wrap p-2">
+                                <img class="contain" src=@item.imageUrl>
+                                @if (item.salePrice != null && item.salePrice > 0)
+                                {
+                                    int sale = (int)(100 - (double)item.salePrice * 100 / (double)item.price);
+                                    <span class="badge badge-danger"> Giảm @sale% </span>
+                                }
+                            </a>
+                            <hr />
+                            <figcaption class="info-wrap">
+                                <a href=@Url.Action("detail","product",new { alias = item.alias }) class="title">@item.name</a>
+                                @if (item.salePrice != null && item.salePrice > 0)
+                                {
+                                    <div class="price root mt-1">@string.Format("{0:#,0}", @item.price) đ</div>
+                                    <div class="price sale mt-1">@string.Format("{0:#,0}", @item.salePrice) đ</div>
+                                }
+                                else
+                                {
+                                    <div class="price current mt-1">@string.Format("{0:#,0}", @item.price) đ</div>
+                                    <div class="price hidden mt-1">@string.Format("{0:#,0}", @item.salePrice) đ</div>
+                                }
+                            </figcaption>
+                        </div>
+                    </div><!--col.// -->
+                }
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- =============== SECTION DEAL // END =============== -->

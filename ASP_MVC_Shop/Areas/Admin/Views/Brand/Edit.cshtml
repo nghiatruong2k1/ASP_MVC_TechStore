@@ -1,0 +1,82 @@
+﻿@using ASP_MVC_Shop.Contexts
+@model ASP_MVC_Shop.Contexts.Brand_0256
+
+@Html.AntiForgeryToken()
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">General</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.alias, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.alias, new { htmlAttributes = new { @class = "form-control", @readOnly = true } })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.orderIndex, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.orderIndex, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.orderIndex, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label class="custom-control custom-checkbox">
+                        @if (Model.isPopular ?? false)
+                        {
+                            <input type="checkbox" class="custom-control-input" name="isPopular" checked value="true">
+                        }
+                        else
+                        {
+                            <input type="checkbox" class="custom-control-input" name="isPopular" value="true">}
+                        <div class="custom-control-label"> @Html.DisplayNameFor(model => model.isPopular) </div>
+                    </label>
+                    @Html.ValidationMessageFor(model => model.isPopular, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label class="custom-control custom-checkbox">
+                        @if (Model.isPublic ?? false)
+                        {
+                            <input type="checkbox" class="custom-control-input" name="isPublic" checked value="true">
+                        }
+                        else
+                        {
+                            <input type="checkbox" class="custom-control-input" name="isPublic" value="true"><input type="checkbox" class="custom-control-input" name="isPublic" value="true">
+                        }
+                        <div class="custom-control-label"> @Html.DisplayNameFor(model => model.isPublic) </div>
+                    </label>
+                    @Html.ValidationMessageFor(model => model.isPublic, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <label class="custom-control custom-checkbox">
+                        @if (Model.isTrash ?? false)
+                        {
+                            <input type="checkbox" class="custom-control-input" name="isTrash" checked value="true">
+                        }
+                        else
+                        {
+                            <input type="checkbox" class="custom-control-input" name="isTrash" value="true">
+                        }
+                        <div class="custom-control-label"> @Html.DisplayNameFor(model => model.isTrash) </div>
+                    </label>
+                    @Html.ValidationMessageFor(model => model.isTrash, "", new { @class = "text-danger" })
+                </div>
+                <input type="number" class="d-none" name="imageId" value=@Model.imageId />
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+
+</div>

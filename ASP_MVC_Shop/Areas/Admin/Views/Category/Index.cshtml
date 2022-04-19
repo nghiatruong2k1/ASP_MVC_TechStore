@@ -1,0 +1,104 @@
+﻿@model IEnumerable<ASP_MVC_Shop.Contexts.ViewCategory_0256>
+
+@{
+    ViewBag.Title = "Quản lý danh mục";
+}
+
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header d-flex">
+                        <h3 class="card-title flex-fill">Danh mục</h3>
+                        @if (ViewBag.isTrash != null && ViewBag.isTrash == false)
+                        {
+                            <a href=@Url.Action("",new {isTrash=true }) class="ms-auto btn btn-danger"><i class="fas fa-trash-alt"></i>Thùng rác</a>
+                        }
+                        else
+                        {
+                            <a href=@Url.Action("") class="ms-auto btn btn-info"><i class="fas fa-table"></i>Danh sách</a>
+                        }
+                        <a href=@Url.Action("create") class="ml-3 btn btn-success"><i class="fas fa-plus"></i> Thêm mới</a>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="table-bordered" style="overflow:auto;">
+                            <table id="example2" class="table table-bordered table-hover table-list-catalog">
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.imageUrl)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.name)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.orderIndex)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.isPopular)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.isPublic)
+                                    </th>
+
+                                    <th></th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <img style="width:5em;height:5em;" class="contain" src="@item.imageUrl" />
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.name)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.orderIndex)
+                                        </td>
+                                        <td style="text-align:center;">
+                                            <input type="checkbox" checked=@item.isPopular ?? false />
+                                        </td>
+                                        <td style="text-align:center;">
+                                            <input type="checkbox" checked=@item.isPublic ?? false />
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a class="btn btn-success" href=@Url.Action("update", new { id = item.id })>
+                                                    <span class="fas fa-edit"></span>
+                                                </a>
+                                                @if (item.isTrash != null && item.isTrash == true)
+                                                {
+                                                    <button class="btn-trash btn btn-info" data-action=@Url.Action("restore", new { id = item.id })>
+                                                        <span class="fas fa-trash-restore"></span>
+                                                    </button>
+                                                    <button class="btn-delete btn btn-danger" data-action=@Url.Action("delete", new { id = item.id })>
+                                                        <span class="fas fa-trash"></span>
+                                                    </button>
+                                                }
+                                                else
+                                                {
+                                                    <button class="btn-trash btn btn-warning" data-action=@Url.Action("remove", new { id = item.id })>
+                                                        <span class="fas fa-trash-alt"></span>
+                                                    </button>
+                                                }
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>

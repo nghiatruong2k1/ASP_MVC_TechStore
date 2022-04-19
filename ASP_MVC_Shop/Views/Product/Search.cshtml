@@ -1,0 +1,42 @@
+﻿@model ASP_MVC_Shop.Models.ProductListModel
+@{
+    ViewBag.title = "Tìm kiếm " + '"' +Model.query + '"';
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content padding-y">
+    <div class="container" id="list-container">
+        <!-- ============================  FILTER TOP  ================================= -->
+        <div class="card mb-2">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-2"> Bạn đang ở đây: </div> <!-- col.// -->
+                    <nav class="col-md-8">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                <a href=@Url.Action("search","product",new { query=Model.query})>Tìm kiếm: "@Model.query"</a>
+                            </li>
+                        </ol>
+                    </nav> <!-- col.// -->
+                </div>
+            </div>
+        </div>
+        <!-- ============================ FILTER TOP END.// ================================= -->
+        @if (Model.view == 0)
+        {
+            @RenderPage("~/Views/Product/Modul/ListLarge.cshtml")
+        }
+        else
+        {
+            @RenderPage("~/Views/Product/Modul/ListGrid.cshtml")
+        }
+        <div class="box text-center">
+            <p>Did you find what you were looking for？</p>
+            <a href="" class="btn btn-light">Yes</a>
+            <a href="" class="btn btn-light">No</a>
+        </div>
+
+    </div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->

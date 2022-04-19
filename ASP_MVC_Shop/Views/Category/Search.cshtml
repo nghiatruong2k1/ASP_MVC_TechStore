@@ -1,0 +1,41 @@
+﻿@model List<ASP_MVC_Shop.Contexts.ViewCategory_0256>
+@{
+    ViewBag.Title = "Tìm kiếm " + '"' + ViewBag.query + '"';
+}
+
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content padding-y">
+    <div class="container">
+        <div class="card mb-2">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-2"> Your are here: </div> <!-- col.// -->
+                    <nav class="col-md-8">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                <a href=@Url.Action("category","product")>Tìm kiếm "@ViewBag.query"</a>
+                            </li>
+                        </ol>
+                    </nav> <!-- col.// -->
+                </div>
+            </div>
+        </div>
+        <nav class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3">
+                    <div class="card card-category">
+                        <div class="img-wrap w-100">
+                            <img class="contain" src=@item.imageUrl>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title"><a href=@Url.Action("category","product",new { alias=item.alias})>@item.name</a></h4>
+                        </div>
+                    </div>
+                </div> <!-- col.// -->
+            }
+        </nav> <!-- row.// -->
+    </div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->

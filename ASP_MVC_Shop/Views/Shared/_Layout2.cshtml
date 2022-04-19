@@ -1,0 +1,11 @@
+﻿@RenderPage("~/Views/Shared/Modul/Head.cshtml")
+@RenderPage("~/Views/Shared/Modul/Header.cshtml")
+<!-- ========================= BODY ========================= -->
+@RenderBody()
+
+
+<!-- ========================= BODY END ========================= -->
+@RenderPage("~/Views/Shared/Modul/Footer.cshtml")
+@RenderSection("scripts", required: false)
+<script src="~/Scripts/views/paging.js"></script>
+@RenderPage("~/Views/Shared/Modul/Foot.cshtml")

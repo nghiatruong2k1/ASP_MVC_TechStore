@@ -1,0 +1,15 @@
+﻿@model ASP_MVC_Shop.Contexts.Brand_0256
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<form action=@Url.Action("create") method="post">
+    <div class="row py-1">
+        <div class="col-12">
+            <a href=@Url.Action("") class="btn btn-secondary">Cancel</a>
+            <input type="submit" value="Create" class="btn btn-success float-right">
+        </div>
+    </div>
+    @RenderPage("~/Areas/Admin/Views/Brand/Edit.cshtml")
+</form>

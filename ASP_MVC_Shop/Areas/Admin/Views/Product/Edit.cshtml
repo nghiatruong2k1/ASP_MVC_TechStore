@@ -1,0 +1,210 @@
+﻿@using ASP_MVC_Shop.Contexts
+@model ASP_MVC_Shop.Contexts.Product_0256
+
+
+@Html.AntiForgeryToken()
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div class="row" id="content">
+    <div class="col-md-6">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Thông tin</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.name, new { @class = "control-label" })
+                    @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control", @value = Model.name} })
+                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.alias, new { @class = "control-label" })
+                    @Html.EditorFor(model => model.alias, new { htmlAttributes = new { @class = "form-control", @value = Model.name, @readOnly = true} })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.categoryId, new { @class = "control-label" })
+                    <select name="categoryId" class="form-control custom-select">
+                        <option value="0">--Chọn--</option>
+                        @foreach (Category_0256 item in ViewBag.listCategory as List<Category_0256>)
+                        {
+                            if (item.id == Model.categoryId)
+                            {
+                                <option value=@item.id selected>@item.name</option>
+                            }
+                            else
+                            {
+                                <option value=@item.id>@item.name</option>
+                            }
+                        }
+                    </select>
+                    @Html.ValidationMessageFor(model => model.categoryId, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.brandId, new { @class = "control-label" })
+                    <select name="brandId" class="form-control custom-select" value=@Model.brandId>
+                        <option value="0">--Chọn--</option>
+                        @foreach (Brand_0256 item in ViewBag.listBrand as List<Brand_0256>)
+                        {
+                            if (item.id == Model.brandId)
+                            {
+                                <option value=@item.id selected>@item.name</option>
+                            }
+                            else
+                            {
+                                <option value=@item.id>@item.name</option>
+                            }
+                        }
+                    </select>
+                    @Html.ValidationMessageFor(model => model.brandId, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.typeId, new { @class = "control-label" })
+                    <select name="typeId" class="form-control custom-select" value=@Model.typeId>
+                        <option value="0">--Chọn--</option>
+                        @foreach (ProductType_0256 item in ViewBag.listType as List<ProductType_0256>)
+                        {
+                            if (item.id == Model.typeId)
+                            {
+                                <option value=@item.id selected>@item.name</option>
+                            }
+                            else
+                            {
+                                <option value=@item.id>@item.name</option>
+                            }
+                        }
+                    </select>
+                    @Html.ValidationMessageFor(model => model.typeId, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label class="custom-control custom-checkbox">
+                        @if(Model.isPublic ?? false){
+                        <input type="checkbox" class="custom-control-input" name="isPublic" checked value="true">
+                        }else{
+                        <input type="checkbox" class="custom-control-input" name="isPublic" value="true">
+                        }
+                        <div class="custom-control-label"> @Html.DisplayNameFor(model => model.isPublic) </div>
+                    </label>
+                    @Html.ValidationMessageFor(model => model.isPublic, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <label class="custom-control custom-checkbox">
+                        @if(Model.isTrash ?? false){
+                        <input type="checkbox" class="custom-control-input" name="isTrash" checked value="true">
+                        }else{
+                        <input type="checkbox" class="custom-control-input" name="isTrash" value="true">
+                        }
+                        <div class="custom-control-label"> @Html.DisplayNameFor(model => model.isTrash) </div>
+                    </label>
+                    @Html.ValidationMessageFor(model => model.isTrash, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+    <div class="col-md-6">
+        <div class="card card-secondary">
+            <div class="card-header">
+                <h3 class="card-title">Giá</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.price, new { @class = "control-label" })
+                    @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.salePrice, new { @class = "control-label" })
+                    @Html.EditorFor(model => model.salePrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.salePrice, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group d-none">
+                    @Html.LabelFor(model => model.currencyUnit, new { @class = "control-label" })
+                    <select class="form-control custom-select">
+                        <option selected disabled>--Chọn--</option>
+                        <option>VND</option>
+                        <option>USD</option>
+                    </select>
+                </div>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+        <div class="card card-secondary">
+            <div class="card-header">
+                <h3 class="card-title">Hình ảnh</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                @{ string imageUrl = ViewBag.imageUrl as String; }
+                <div class="form-group">
+                    @Html.LabelFor(model => model.imageId, new { @class = "control-label" })
+                    <input type="number" class="d-none" name="imageId" value=@Model.imageId />
+                    <div class="row">
+                        <div class="col-5">
+                            <input type="file" id="image-upload" class="form-control" value="" style="height:auto" />
+                            <input type="text" id="image-url"class="d-none" value="@imageUrl" name="imageUrl" />
+                        </div>
+                        <div class="col-7">
+                            <div class="image-container form-control">
+                                <div class="image-content">
+                                    <img src="@imageUrl" alt=""id="image-view" class="w-100 h-100 contain" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+    <div class="col-md-12">
+        <div class="card card-secondary">
+            <div class="card-header">
+                <h3 class="card-title">Description</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.shortDes, new { @class = "control-label" })
+                    @Html.TextAreaFor(model => model.shortDes, htmlAttributes: new { @class = "form-control", @rows = "4" })
+                    @Html.ValidationMessageFor(model => model.shortDes, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.fullDes, new { @class = "control-label" })
+                    @Html.TextAreaFor(model => model.fullDes, htmlAttributes: new { @class = "form-control" })
+                    <script>CKEDITOR.replace("fullDes");</script>
+                    @Html.ValidationMessageFor(model => model.fullDes, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+</div>
+

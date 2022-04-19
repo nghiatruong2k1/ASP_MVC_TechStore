@@ -1,0 +1,183 @@
+﻿@model ASP_MVC_Shop.Models.ProductListModel
+@using PagedList
+@using PagedList.Mvc
+<div id="list-grid">
+    <!-- ============================  FILTER TOP  ================================= -->
+    <div class="card mb-3">
+        <div class="card-body">
+            <div class="row align-items-center">
+                <div class="col-md-2"><span>Filter by</span></div> <!-- col.// -->
+                <div class="col-md-10">
+                    <ul class="list-inline">
+                        <li class="list-inline-item mr-3 dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Danh mục:</a>
+                            <div class="dropdown-menu p-3" style="max-width:400px;">
+                                <div class="inner" style="width: max-content;">
+                                    <ul class="list-menu">
+                                        @foreach (var item in Model.listCategory)
+                                        {
+                                            <li>
+                                                <a href=@Url.Action("category","product",new {
+                                                        alias = @item.alias ,
+                                                        view = 1
+                                                 })>@item.name</a>
+                                            </li>
+                                        }
+                                        <li>
+                                            <a href=@Url.Action("category","product",new {
+                                                   alias="xem-tat-ca",
+                                                        view = 1
+                                                 })>Xem tất cả</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div> <!-- dropdown-menu.// -->
+                        </li>
+                        <li class="list-inline-item mr-3 dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">  Thương hiệu: </a>
+                            <div class="dropdown-menu p-3">
+                                <div class="inner" style="width: max-content;">
+                                    @{ /*@foreach (var item in Model.listBrand)
+                                        {
+                                        <label class="custom-control custom-checkbox">
+                                        <input type="checkbox" checked="" class="custom-control-input">
+                                        <div class="custom-control-label d-flex justify-content-between w-100">
+                                        @item.name
+                                        <b class="badge badge-pill badge-light">120</b>
+                                        </div>
+                                        </label>
+                                        }*/}
+                                    <ul class="list-menu">
+                                        @foreach (var item in Model.listBrand)
+                                        {
+                                            <li>
+                                                <a href=@Url.Action("brand","product",new {
+                                                        id = @item.id ,
+                                                        view = 1
+                                                 })>@item.name</a>
+                                            </li>
+                                        }
+                                        <li>
+                                            <a href=@Url.Action("brand","product",new {
+                                                        id = 0,  
+                                                        view = 1
+                                                 })>Xem tất cả</a>
+                                        </li>
+                                    </ul>
+                                 </div>
+                            </div> <!-- dropdown-menu.// -->
+                        </li>
+                        <li class="list-inline-item mr-3 dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Feature</a>
+                            <div class="dropdown-menu">
+                                <a href="" class="dropdown-item">Anti backterial</a>
+                                <a href="" class="dropdown-item">With buttons</a>
+                                <a href="" class="dropdown-item">Extra safety</a>
+                            </div>
+                        </li>
+                        <li class="list-inline-item mr-3"><a href="#">Color</a></li>
+                        <li class="list-inline-item mr-3"><a href="#">Size</a></li>
+                        <li class="list-inline-item mr-3">
+                            <div class="form-inline">
+                                <label class="mr-2">Price</label>
+                                <input class="form-control form-control-sm" placeholder="Min" type="number">
+                                <span class="px-2"> - </span>
+                                <input class="form-control form-control-sm" placeholder="Max" type="number">
+                                <button type="submit" class="btn btn-sm btn-light ml-2">Ok</button>
+                            </div>
+                        </li>
+                        <li class="list-inline-item mr-3">
+                            <label class="custom-control mt-1 custom-checkbox">
+                                <input type="checkbox" class="custom-control-input">
+                                <div class="custom-control-label">
+                                    Ready to ship
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
+                </div> <!-- col.// -->
+            </div> <!-- row.// -->
+        </div> <!-- card-body .// -->
+    </div> <!-- card.// -->
+    <!-- ============================ FILTER TOP END.// ================================= -->
+
+    <header class="mb-3">
+        <div class="form-inline">
+            <strong class="mr-md-auto">@Model.totalItem Items found </strong>
+            <select class="mr-2 form-control">
+                <option>Latest items</option>
+                <option>Trending</option>
+                <option>Most Popular</option>
+                <option>Cheapest</option>
+            </select>
+            @RenderPage("~/Views/Product/Modul/ViewGroupButton.cshtml")
+        </div>
+    </header><!-- sect-heading -->
+
+    <div class="row">
+        @foreach (var item in Model.listProduct)
+        {
+            <div class="col col-6 col-md-4 col-lg-3 px-1 py-1">
+                <figure class="card card-product-grid mb-0 product" data-id=@item.id>
+                    <a href="@Url.Action("detail","product",new { id = item.id })" class="img-wrap p-1">
+                        @if (item.salePrice != null && item.salePrice > 0)
+                        {
+                            int sale = (int)(100 - (double)item.salePrice * 100 / (double)item.price);
+                            <span class="badge badge-danger"> Giảm @sale% </span>
+                        }
+                        <img class="contain" src=@item.imageUrl>
+                    </a> <!-- img-wrap.// -->
+                    <figcaption class="info-wrap">
+                        <a href=@Url.Action("detail","product",new { alias = item.alias }) class="title mb-2">@item.name</a>
+                        <div class="price-wrap">
+                            @if (item.salePrice != null && item.salePrice > 0)
+                            {
+                                <div class="price root mt-1">@string.Format("{0:#,0}", @item.price) đ</div>
+                                <div class="price sale mt-1">@string.Format("{0:#,0}", @item.salePrice) đ</div>
+                            }
+                            else
+                            {
+                                <div class="price current mt-1">@string.Format("{0:#,0}", @item.price) đ</div>
+                                <div class="price hidden mt-1">@string.Format("{0:#,0}", @item.salePrice) đ</div>
+                            }
+
+                        </div> <!-- price-wrap.// -->
+
+                        <p class="mb-2"> 1 Pieces  <small class="text-muted">(Min Order)</small></p>
+
+                        <p class="text-muted ">Guangzhou Yichuang Electronic Co</p>
+
+                        <hr>
+
+                        <p class="mb-3">
+                            <span class="tag"> <i class="fa fa-check"></i> Verified</span>
+                            <span class="tag"> 2 Years </span>
+                            <span class="tag"> 23 reviews </span>
+                            <span class="tag"> Japan </span>
+                        </p>
+
+                        <label class="custom-control mb-3 custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+                            <div class="custom-control-label">
+                                Add to compare
+                            </div>
+                        </label>
+
+                        <button class="btn w-100 btn-primary add-to-cart-btn mb-1">
+                            <i class="fas fa-shopping-cart"></i> <span class="text">Thêm vào giỏ hàng</span>
+                        </button>
+                        <button class="btn w-100 btn-light add-to-cart-btn mb-1">
+                            <i class="fas fa-envelope"></i> <span class="text">Liên hệ</span>
+                        </button>
+
+                    </figcaption>
+                </figure>
+            </div> <!-- col.// -->
+        }
+
+
+
+    </div> <!-- row end.// -->
+
+    @RenderPage("~/Views/Product/Modul/ViewPaging.cshtml")
+</div>

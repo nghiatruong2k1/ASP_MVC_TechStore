@@ -1,0 +1,22 @@
+﻿@model ASP_MVC_Shop.Models.ProductListModel
+@using PagedList
+@using PagedList.Mvc
+
+@if (Model.listProduct.PageCount > 1)
+{
+<div class="ajax-page-links" data-render="#content">
+    @Html.PagedListPager(Model.listProduct,
+        page =>(Url.Action(Model.action, Model.controller,
+            new
+            {
+                page,
+                alias = Model.alias,
+                query = Model.query,
+                view = Model.view
+            }
+         ))
+        ,new PagedListRenderOptions() {
+            LiElementClasses = new string[] { "page-item" }
+        })
+</div>
+}

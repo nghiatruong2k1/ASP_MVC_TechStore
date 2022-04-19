@@ -1,0 +1,48 @@
+﻿@model ASP_MVC_Shop.Models.AuthLoginModel
+@{
+    ViewBag.Title = "Đăng nhập";
+}
+
+<!-- ========================= SECTION CONTENT ========================= -->
+
+<section class="section-conten padding-y" style="min-height:84vh">
+    <!-- ============================ COMPONENT LOGIN   ================================= -->
+    <div class="card mx-auto" style="max-width: 380px; margin-top:20px;">
+        <div class="card-body login-card-body">
+            <h4 class="card-title mb-4">Đăng nhập</h4>
+            <form method="POST" action=@Url.Action("login","user")>
+                @Html.AntiForgeryToken()
+                <div class="input-group mb-2">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                    @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control",@type="emaill", @placeholder = "Email" } })
+                    @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger w-100" })
+                </div> <!-- form-group// -->
+                <div class="input-group mb-2">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                    <input type="password" class="form-control" name="password" placeholder="Mật khẩu">
+                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger w-100" })
+                </div> <!-- form-group// -->
+                <div class="form-group">
+                    <a href=@Url.Action("forget","user") class="float-right">Quên mật khẩu?</a>
+                    <label class="float-left custom-control custom-checkbox"> <input type="checkbox" class="custom-control-input" checked=""> <div class="custom-control-label"> Nhớ tài khoản </div> </label>
+                </div> <!-- form-group form-check .// -->
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block"> Đăng nhập  </button>
+                </div> <!-- form-group// -->
+                <p class="text-center mt-4">Bạn chưa có tài khoản? <a href=@Url.Action("register","user")>Đăng kí</a></p>
+                <a href="#" class="btn btn-facebook btn-block mb-2"> <i class="fab fa-facebook-f"></i> &nbsp Facebook</a>
+                <a href="#" class="btn btn-google btn-block mb-4"> <i class="fab fa-google"></i> &nbsp Google</a>
+            </form>
+        </div> <!-- card-body.// -->
+    </div> <!-- card .// -->
+    <!-- ============================ COMPONENT LOGIN  END.// ================================= -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
